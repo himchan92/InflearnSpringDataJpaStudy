@@ -55,4 +55,19 @@ public class MemberJpaRepository {
                 .setParameter("age", age)
                 .getResultList();
     }
+
+    // JPA 직접 페이징 로직 구현
+    public List<Member> findByPage(int age, int offset, int limit) {
+        return em.createQuery("select m from Member m where m.age = :age order by m.username desc")
+            .setParameter("age", age) // 파라미터 설정
+            .setFirstResult(offset) // 페이징 첫번째 설정
+            .setMaxResults(limit) //페이징 마지막 설정
+            .getResultList(); //여러건 조회
+    }
+
+    public long totalCount(int age) {
+        return em.createQuery("select count(m) from Member m where m.age = :age", Long.class)
+            .setParameter("age", age)
+            .getSingleResult(); //단건 조회
+    }
 }
