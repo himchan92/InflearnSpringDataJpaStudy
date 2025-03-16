@@ -16,6 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter //예제를 위해 설정했으니 실무에서는 외부에서 값변경허용해주면 안좋으니 권장하지 않음
 @Entity
+@NoArgsConstructor
 //@NoArgsConstructor(access = AccessLevel.PROTECTED) //기본생성자 protected 범위까지 생성(private로 하면 접근이 안되어 구현 힘듬)
 //@ToString(of = {"id", "username", "age"})
 public class Member {

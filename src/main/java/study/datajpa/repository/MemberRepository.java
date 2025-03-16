@@ -10,7 +10,8 @@ import study.datajpa.entity.Member;
 // <엔티티, PK 속성 파라미터>
 // JPA CRUD 기본 제공
 // CrudRepository ( CRUD ), JpaRepository ( CRUD + PAGING )
-public interface MemberRepository extends JpaRepository<Member, Long> {
+// 사용자정의커스텀을 , 추가하여 상속가능
+public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustom {
     // 쿼리 메소드 기능 : findBy필드명And필드명GreaterThan ( 자세한 문법은 Spring Data Jpa 공식사이트 문서 참고 )
     // QueryDSL 사용 시 더 편리하니 참고
     List<Member> findByUsernameAndAgeGreaterThan(String username, int age);

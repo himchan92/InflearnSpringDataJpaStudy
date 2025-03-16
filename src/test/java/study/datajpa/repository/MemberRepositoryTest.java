@@ -42,4 +42,10 @@ class MemberRepositoryTest {
             System.out.println("s = " + s);
         }
     }
+
+    //사용자정의레포지토리 정상기능테스트
+    @Test
+    public void callCustom() {
+        List<Member> result = memberRepository.findMemberCustom();
+    }
 }
